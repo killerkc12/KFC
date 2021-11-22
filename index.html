@@ -56,5 +56,39 @@
     </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        const slides = document.querySelectorAll('.sliders');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        i = 0;
+
+        function ActiveSlide(n) {
+            for(slide of slides) 
+                slide.classList.remove('active')
+            slides[n].classList.add('active')
+        }
+
+        // function for next btn
+        next.addEventListener('click', () => {
+            if ( i == slides.length - 1 ) {
+                i = 0;
+                ActiveSlide(i)
+            } else {
+                i++;
+                ActiveSlide(i)
+            }
+        })
+
+        // function for prev btn 
+        prev.addEventListener('click', () => {
+            if ( i == 0 ) {
+                i = slides.length - 1;
+                ActiveSlide(i)
+            } else {
+                i--;
+                ActiveSlide(i)
+            }
+        })
+    </script>
 </body>
 </html>
